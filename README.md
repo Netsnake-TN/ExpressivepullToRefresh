@@ -34,6 +34,14 @@ A Material Design 3 Expressive Pull-to-Refresh component for Android. Provides t
 
 ---
 
+## 🎬 Preview
+
+<div align="center">
+  <img src="demo.gif" alt="Demo" />
+</div>
+
+---
+
 ## 📦 Installation
 
 ### JitPack Dependency
