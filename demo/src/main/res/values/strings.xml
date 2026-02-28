@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Expressive Pull To Refresh</string>
+
+    <string name="tab_recycler">RecyclerView</string>
+    <string name="tab_listview">ListView</string>
+    <string name="tab_webview">WebView</string>
+    <string name="tab_scrollview">ScrollView</string>
+
+    <string name="webview_error">Failed to load page. Pull to refresh.</string>
+    <string name="scrollview_title">ScrollView Demo</string>
+    <string name="scrollview_subtitle">Pull down to refresh this ScrollView content. The loading indicator will appear at the top.</string>
+</resources>

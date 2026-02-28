@@ -1,0 +1,13 @@
+# JitPack configuration file
+# This file tells JitPack how to build the project
+
+# Specify the JDK version to use
+jdk:
+  - openjdk17
+
+# Build commands (optional, JitPack auto-detects Gradle projects)
+# The library module ':refresh' will be built automatically
+
+# Install the library module to make it available as a dependency
+install:
+  - ./gradlew :refresh:assemble :refresh:publishToMavenLocal

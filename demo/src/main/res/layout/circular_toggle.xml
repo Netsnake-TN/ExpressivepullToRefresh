@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/iv_contained"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:src="@drawable/contained"
+        android:scaleType="fitCenter"
+        android:visibility="visible" />
+    <ImageView
+        android:id="@+id/iv_uncontained"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center"
+        android:src="@drawable/uncontained"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+</merge>
