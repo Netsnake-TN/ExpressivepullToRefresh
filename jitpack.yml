@@ -5,9 +5,6 @@
 jdk:
   - openjdk17
 
-# Build commands (optional, JitPack auto-detects Gradle projects)
-# The library module ':refresh' will be built automatically
-
-# Install the library module to make it available as a dependency
+# Build the library module
 install:
-  - ./gradlew :refresh:assemble :refresh:publishToMavenLocal
+  - ./gradlew :refresh:assembleRelease :refresh:publishToMavenLocal

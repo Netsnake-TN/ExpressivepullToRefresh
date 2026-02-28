@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
@@ -30,9 +31,29 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
     implementation 'androidx.core:core:1.16.0'
     implementation 'com.google.android.material:material:1.14.0-alpha09'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.Netsnake-TN'
+                artifactId = 'ExpressivepullToRefresh'
+                version = '1.0.0'
+                from components.release
+            }
+        }
+    }
 }

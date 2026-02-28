@@ -72,7 +72,7 @@ This library uses **Material Components 1.14+** for the `LoadingIndicator` compo
 
 ```gradle
 dependencies {
-    implementation 'com.google.android.material:material:1.14.0'
+    implementation 'com.google.android.material:material:1.14.0-alpha09'
     implementation 'androidx.core:core:1.16.0'
 }
 ```
