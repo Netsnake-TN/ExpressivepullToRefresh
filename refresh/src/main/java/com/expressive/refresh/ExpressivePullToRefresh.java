@@ -58,6 +58,7 @@ public class ExpressivePullToRefresh extends ViewGroup implements NestedScrollin
     private int mOriginalOffsetTop;
 
     private float mInitialMotionY;
+    private float mInitialMotionX;
     private boolean mIsBeingDragged;
     private int mActivePointerId = -1;
     private boolean mThresholdReached;
@@ -294,6 +295,7 @@ public class ExpressivePullToRefresh extends ViewGroup implements NestedScrollin
                     return false;
                 }
                 mInitialMotionY = initialMotionY;
+                mInitialMotionX = ev.getX(ev.findPointerIndex(mActivePointerId));
                 break;
 
             case MotionEvent.ACTION_MOVE:
@@ -305,6 +307,17 @@ public class ExpressivePullToRefresh extends ViewGroup implements NestedScrollin
                     return false;
                 }
                 final float yDiff = y - mInitialMotionY;
+
+                final int xIndex = ev.findPointerIndex(mActivePointerId);
+                if (xIndex >= 0) {
+                    final float xDiff = Math.abs(ev.getX(xIndex) - mInitialMotionX);
+                    if (xDiff > Math.abs(yDiff)) {
+                        mIsBeingDragged = false;
+                        mActivePointerId = -1;
+                        return false;
+                    }
+                }
+
                 if (yDiff > mTouchSlop && !mIsBeingDragged) {
                     mIsBeingDragged = true;
                 }
@@ -340,6 +353,7 @@ public class ExpressivePullToRefresh extends ViewGroup implements NestedScrollin
             case MotionEvent.ACTION_DOWN:
                 mActivePointerId = ev.getPointerId(0);
                 mIsBeingDragged = false;
+                mInitialMotionX = ev.getX(ev.findPointerIndex(mActivePointerId));
                 break;
 
             case MotionEvent.ACTION_MOVE: {
@@ -350,6 +364,11 @@ public class ExpressivePullToRefresh extends ViewGroup implements NestedScrollin
 
                 final float y = ev.getY(pointerIndex);
                 final float yDiff = y - mInitialMotionY;
+
+                final float xDiff = Math.abs(ev.getX(pointerIndex) - mInitialMotionX);
+                if (!mIsBeingDragged && xDiff > Math.abs(yDiff)) {
+                    return false;
+                }
                 
                 if (!mIsBeingDragged && yDiff > mTouchSlop) {
                     mIsBeingDragged = true;

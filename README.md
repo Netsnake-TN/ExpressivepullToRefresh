@@ -62,7 +62,7 @@ dependencyResolutionManagement {
 
 ```gradle
 dependencies {
-    implementation 'com.github.Netsnake-TN:ExpressivepullToRefresh:v1.0.0'
+    implementation 'com.github.Netsnake-TN:ExpressivepullToRefresh:v1.0.1'
 }
 ```
 
